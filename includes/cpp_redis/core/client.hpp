@@ -808,6 +808,8 @@ namespace cpp_redis {
 
 			std::future<reply> exec();
 
+			client& exists(const std::string& key, const reply_callback_t& reply_callback);
+		
 			client &exists(const std::vector<std::string> &keys, const reply_callback_t &reply_callback);
 
 			std::future<reply> exists(const std::vector<std::string> &keys);
