@@ -1039,6 +1039,13 @@ namespace cpp_redis {
 		return *this;
 	}
 
+        client&
+        client::exists(const std::string& key, const reply_callback_t& reply_callback) {
+          std::vector<std::string> cmd = {"EXISTS", key};
+          send(cmd, reply_callback);
+          return *this;
+        }
+	
 	client &
 	client::exists(const std::vector<std::string> &keys, const reply_callback_t &reply_callback) {
 		std::vector<std::string> cmd = {"EXISTS"};
